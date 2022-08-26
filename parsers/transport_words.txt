@@ -1,0 +1,38 @@
+tram
+lorry
+bike
+bus
+jeep
+truck
+bicycle
+car
+van
+minibus
+campervan
+taxi
+ship
+coach
+boat
+helicopter
+plane
+train
+tractor
+rocket
+subway
+spaceship
+submarine
+transport
+transport
+airplane
+autopilot-car
+autopilotcar
+autopilot
+automatic pilots
+autopilot system
+selfdriving
+selfdriving-car
+metro
+underground
+subway
+electric car
+tesla
