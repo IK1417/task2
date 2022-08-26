@@ -41,31 +41,31 @@ async def send_parsable_pages(message: Message):
 
 
 async def send_cnbc(message: Message):
-    message.answer_document(open('out/cnbc.csv', 'rb'))
+    await message.answer_document(open('out/cnbc.csv', 'rb'))
 
 
 async def send_techstartups(message: Message):
-    message.answer_document(open('out/techstartups.csv', 'rb'))
+    await message.answer_document(open('out/techstartups.csv', 'rb'))
     
 
 async def send_eu_startups(message: Message):
-    message.answer_document(open('out/eu_startups.csv', 'rb'))
+    await message.answer_document(open('out/eu_startups.csv', 'rb'))
     
 
 async def send_techstars(message: Message):
-    message.answer_document(open('out/techstars.csv', 'rb'))
+    await message.answer_document(open('out/techstars.csv', 'rb'))
     
 
 async def send_startupnews(message: Message):
-    message.answer_document(open('out/startupnews.csv', 'rb'))
+    await message.answer_document(open('out/startupnews.csv', 'rb'))
     
 
 async def send_startupdaily(message: Message):
-    message.answer_document(open('out/startupdaily.csv', 'rb'))
+    await message.answer_document(open('out/startupdaily.csv', 'rb'))
 
 
 async def get_all(message: Message):
-    message.answer_document(open('out/result.csv'))
+    await message.answer_document(open('out/result.csv', 'rb'))
 
 
 def register_admin(dp: Dispatcher):
@@ -113,4 +113,8 @@ def register_admin(dp: Dispatcher):
 
     dp.register_message_handler(
         send_techstars, role=UserRole.ADMIN, commands=['https://www.startupdaily.net/news/']
+    )
+
+    dp.register_message_handler(
+        get_all, role=UserRole.ADMIN, commands=["get_all"],
     )
