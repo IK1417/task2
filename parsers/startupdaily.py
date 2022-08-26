@@ -1,8 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-import os.path
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+
+
+@dataclass
+class Visited:
+    visited: list = field(default_factory=[])
 
 
 class UserAgent:
@@ -72,8 +76,9 @@ def get_correct_date(date: str):
         "july": 7,
         "august": 8,
         "september": 9,
-        "november": 10,
-        "december": 11,
+        "october": 10,
+        "november": 11,
+        "december": 12,
     }
     date = date.replace(",", "")
     date = date.split()
@@ -125,7 +130,10 @@ def parse_block_page(url, headers, path_to_csv: str):
     soup = BeautifulSoup(req.text, "html.parser")
     links = soup.find_all(rel="bookmark")
     for link in links:
-        parse_startup_page(link["href"], headers, path_to_csv)
+        try:
+            parse_startup_page(link["href"], headers, path_to_csv)
+        except AttributeError:
+            continue
 
 
 def start_collecting(headers, path_to_csv: str):

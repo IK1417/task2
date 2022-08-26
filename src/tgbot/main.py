@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import sqlite3
 
 from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -16,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 async def main():
+
     logging.basicConfig(level=logging.INFO)
     logger.info("Startinug bot")
     config: BotConfig = load_bot_config("bot.ini")

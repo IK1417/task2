@@ -14,6 +14,6 @@ def load_bot_config(path: str) -> BotConfig:
 
     tg_bot = config["tg_bot"]
     admins_list: list[int] = [
-        int(admin_id) for admin_id in tg_bot.get("admins").split(',')
+        int(admin_id) for admin_id in tg_bot.get("admins").split(",")
     ]
     return BotConfig(token=tg_bot.get("token"), admins_id=admins_list)

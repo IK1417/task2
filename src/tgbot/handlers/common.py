@@ -9,6 +9,6 @@ async def get_id(message: Message):
 def register_common(dp: Dispatcher):
     dp.register_message_handler(
         get_id,
-        commands=['get_my_id'],
+        commands=["get_my_id"],
         state="*",
     )
